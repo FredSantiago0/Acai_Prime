@@ -1,5 +1,7 @@
-import { Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Feather, Ionicons } from '@expo/vector-icons';
+import { Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -23,19 +25,33 @@ export default function App() {
 
           <View style={styles.featureCard}>
             <Image source={require('./assets/greatingImage.jpg')} style={styles.featureImageStyle} />
-            <View>
+            <View style={styles.featureSuperiorCard}>
               <Text style={styles.featureTitleCard}>Açaí Turbinado 500ml</Text>
+              <View style={styles.featureMaisPedidoSection}>
+                <Text style={styles.featureMaisPedidoText}>MAIS PEDIDO</Text>
+              </View>
             </View>
 
             <Text style={styles.featureSubtitleCard}>Açaí puro batido com morango, banana, leite condensado e granola crocante</Text>
-              
-              </View>
-                <Text style={styles.featurePriceCard}>R$ 22,90</Text>
-              <View>
-          </View>
 
+            <View style={styles.featureInferiorCard}>
+              <Text style={styles.featurePriceCard}>R$ 22,90</Text>
+
+              <TouchableOpacity style={styles.buttonCard}>
+                <View>
+                  <Feather name="shopping-bag" size={16} color={"white"}>
+                    <Text style={styles.buttonTextCard}> Adiciona</Text>
+                  </Feather>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
         {/* Conteudo */}
+
+        {/* Footer */}
+
+        {/* Footer */}
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -61,14 +77,14 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     color: '#2C1B30'
   },
-  
+
   greatingSubtitle: {
     fontSize: 15,
     fontWeight: '400',
     color: '#644D6A'
   },
 
-featureCard: {
+  featureCard: {
     backgroundColor: "#ffffffff",
     borderRadius: 24,
     padding: 16,
@@ -80,10 +96,30 @@ featureCard: {
   },
 
   featureImageStyle: {
-   borderRadius: 16,
+    borderRadius: 16,
     width: "100%",
-    height: 180, 
-    marginBottom: 16
+    height: 180,
+    marginBottom: 18
+  },
+
+  featureSuperiorCard: {
+    justifyContent: "space-between",
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+
+  featureMaisPedidoSection: {
+    justifyContent: "center",
+    backgroundColor: "#F3E5F5",
+    borderRadius: 6,
+    paddingHorizontal: 8,
+  },
+
+  featureMaisPedidoText: {
+    fontSize: 13,
+    fontWeight: "700",
+    color: "#7B1FA2",
+
   },
 
   featureTitleCard: {
@@ -93,15 +129,38 @@ featureCard: {
   },
 
   featureSubtitleCard: {
-    fontSize: 14,
-    color: "#9b9b9b",
-    marginTop: 4
+    fontSize: 16,
+    fontWeight: "400",
+    color: "#644D6A",
+    marginTop: 8
+  },
+
+  featureInferiorCard: {
+    justifyContent: "space-between",
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
 
   featurePriceCard: {
-    fontSize: 20,
-    fontWeight: '800',
-    color: "#c67c4e",
+    fontSize: 22,
+    fontWeight: 900,
+    color: "#7B1FA2",
     marginTop: 12
   },
+
+  buttonCard: {
+    marginTop: 8,
+    backgroundColor: "#7B1FA2",
+    borderRadius: 20,
+    justifyContent: "center",
+    paddingHorizontal: 24,
+    
+  },
+  
+  buttonTextCard: {
+    color:"#fff",
+    fontSize: 15,
+    fontWeight:"600"
+  }
+
 });
